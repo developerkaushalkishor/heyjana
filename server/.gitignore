@@ -1,0 +1,26 @@
+Edit
+Copy code
+# Node.js dependencies
+node_modules/
+
+# Server logs
+logs/
+*.log
+
+# Environment files
+.env
+.env.development
+.env.production
+
+# Server configuration files
+config.json
+config.js
+
+# Database files
+db.sqlite
+database.db
+
+# Other files that shouldn't be tracked
+*.pid
+*.sock
+*.lock

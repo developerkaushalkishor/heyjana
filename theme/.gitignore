@@ -1,0 +1,59 @@
+# Compiled CSS files
+*.css
+
+# Compiled JavaScript files
+*.js
+
+# Node.js dependencies
+node_modules/
+
+# Theme build files
+build/
+dist/
+
+# Theme cache files
+cache/
+
+# Theme logs
+logs/
+*.log
+
+# Theme configuration files
+config.json
+config.js
+
+# Other files that shouldn't be tracked
+*.zip
+*.rar
+*.7z
+*.exe
+*.dll
+*.so
+*.dylib
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.ico
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# IDE and editor files
+.vscode/
+.idea/
+*.iml
+*.ipynb
+*.swp
+*.swo
+*.tmp
+*.tmp~
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
