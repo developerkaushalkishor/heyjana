@@ -22,9 +22,14 @@ mongoose
   .catch((err) => console.log("Error connecting to the database", err));
 
 // creating schemas
-const contentSchema = new mongoose.Schema({
-  content: String,
-});
+const contentSchema = new mongoose.Schema(
+  {
+    content: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
 // creating model
 const Content = mongoose.model("Content", contentSchema);
@@ -37,8 +42,22 @@ app.post("/content", async (req, res) => {
 });
 
 app.get("/content", async (req, res) => {
-  const content = await Content.find();
-  res.send(content);
+  try {
+    const page = parseInt(req.query.page) || 1; // Default to page 1 if not provided
+    const limit = 10; // Number of todos per page
+
+    const skip = (page - 1) * limit;
+
+    const content = await Content.find()
+      .sort({ updatedAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    res.send(content);
+  } catch {
+    console.error("Error fetching content:", err);
+    res.status(500).send({ message: "Error fetching content" });
+  }
 });
 
 app.put("/content/:id", async (req, res) => {
@@ -54,5 +73,5 @@ app.delete("/content/:id", async (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`Server is running on https://localhost:${PORT}`)
+  console.log(`Server is running on http://localhost:${PORT}`)
 );
