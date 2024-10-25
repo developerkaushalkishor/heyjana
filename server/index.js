@@ -14,10 +14,13 @@ app.use(bodyParser.json());
 
 // connecting to DB
 mongoose
-  .connect("mongodb://localhost:27017/heyjana", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://kaushalkishor97200:LGDfcVV5y1DHWH2h@heyjaana.zh2o6.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log(`Connected to the database on ${PORT} port`))
   .catch((err) => console.log("Error connecting to the database", err));
 
