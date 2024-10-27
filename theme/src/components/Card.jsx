@@ -13,7 +13,7 @@ const Card = () => {
   const fetchContent = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/content?page=${page}`
+        `https://heyjana-back.onrender.com/content?page=${page}`
       );
       setContent(response.data);
     } catch (error) {
@@ -45,7 +45,7 @@ const Card = () => {
     }
 
     try {
-      await axios.put(`http://localhost:3000/content/${id}`, {
+      await axios.put(`https://heyjana-back.onrender.com/content/${id}`, {
         content: updateContent,
       });
       console.log(`Updated content with id: ${id}`);
@@ -60,7 +60,7 @@ const Card = () => {
   // Handling content delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/content/${id}`);
+      await axios.delete(`https://heyjana-back.onrender.com/content/${id}`);
       console.log(`Deleted content with id: ${id}`);
       fetchContent(); // Refresh content list after deletion
     } catch (error) {
@@ -88,7 +88,7 @@ const Card = () => {
                     type="text"
                     value={updateContent}
                     onChange={(e) => setUpdateContent(e.target.value)}
-                    className="px-3 py-2 border rounded"
+                    className="px-3 py-2 border rounded-2xl"
                     placeholder="Update content"
                   />
                   <button
@@ -109,7 +109,7 @@ const Card = () => {
                 </div>
               ) : (
                 <>
-                  <div className="relative rounded-full px-6 py-3 text-sm leading-6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20 text-center">
+                  <div className="relative rounded-xl px-6 py-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/50 hover:ring-gray-900/20 text-center">
                     {data.content}
                   </div>
                   <div className="flex ml-6 bottom-3 relative gap-3 text-gray-700">

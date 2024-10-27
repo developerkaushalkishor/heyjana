@@ -8,7 +8,7 @@ const ContentAdder = ({ onAddContent }) => {
 
   const handleAddContent = async () => {
     if (newContent) {
-      await axios.post("http://localhost:3000/content", {
+      await axios.post("https://heyjana-back.onrender.com/content", {
         content: newContent,
       });
       setNewContent(""); // to clear the input field
